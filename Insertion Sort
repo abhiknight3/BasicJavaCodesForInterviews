@@ -1,0 +1,50 @@
+// Insertion Sort
+//Code:
+
+import java.util.Scanner;
+
+public class InsertionSort {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter n:");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        arr = array(n);
+        insertionSort(arr);
+        print(arr);
+    }
+
+    public static int[] array(int n){
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[n];
+        for(int i = 0; i < n; i++){
+            System.out.println(i + "th input:");
+            arr[i] = sc.nextInt();
+        }
+        return arr;
+    }
+
+    public static void insertionSort(int arr[]){
+        int n = arr.length;
+        for(int i = 1; i < n; i++){
+            for(int j = i - 1; j >= 0; j--){
+                if(arr[j+1] < arr[j]){
+                    int p;
+                    int q;
+                    p = arr[j+1];
+                    q = arr[j];
+                    arr[j] = p;
+                    arr[j+1] = q;
+                }
+            }
+        }
+    }
+
+    public static void print(int arr[]){
+        int n = arr.length;
+        for(int i = 0; i < n; i++){
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+}
